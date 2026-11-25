@@ -46,3 +46,4 @@ docker run -p 8000:8000 pulse-backend:latest
 | `PULSE_ARTIFACTS_DIR` | `artifacts/` | Path to serialized models and JSON schemas |
 | `ENVIRONMENT` | `production` | Active runtime environment |
 | `API_PREFIX` | `/api` | Base path for all REST routes |
+

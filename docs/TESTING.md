@@ -25,3 +25,4 @@ pytest backend/tests/ -v --tb=short
 - **Batch Processing**: Multi-machine JSON requests and multi-row CSV file uploads.
 - **Analytics Endpoints**: Fleet summary, failure mode breakdowns, permutation feature rankings, and model benchmark tables.
 - **Physics Heuristics**: Tool wear fatigue ($>200$ min), thermal entrapment, and mechanical overstrain envelope limits.
+
