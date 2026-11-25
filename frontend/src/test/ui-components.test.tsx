@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { Button } from '@/components/ui/Button';
-import { RiskBadge, MachineStatusBadge } from '@/components/ui/Badge';
-import { StatCard } from '@/components/ui/StatCard';
-import { Progress } from '@/components/ui/Progress';
-import { Input } from '@/components/ui/Input';
+import { Button } from '../components/ui/Button';
+import { RiskBadge, MachineStatusBadge } from '../components/ui/Badge';
+import { StatCard } from '../components/ui/StatCard';
+import { Progress } from '../components/ui/Progress';
+import { Input } from '../components/ui/Input';
 
 describe('Design System UI Components', () => {
   it('renders Button component with label and handles loading state', () => {

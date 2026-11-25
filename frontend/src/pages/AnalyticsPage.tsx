@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
-import { StatCard } from '@/components/ui/StatCard';
-import { Badge } from '@/components/ui/Badge';
-import { FailureDistributionChart } from '@/components/charts/FailureDistributionChart';
-import { TorqueSpeedScatter } from '@/components/charts/TorqueSpeedScatter';
-import { pulseApi } from '@/services/api/pulseApi';
-import { AnalyticsOverviewResponse } from '@/types/api';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '../components/ui/Card';
+import { StatCard } from '../components/ui/StatCard';
+import { Badge } from '../components/ui/Badge';
+import { FailureDistributionChart } from '../components/charts/FailureDistributionChart';
+import { TorqueSpeedScatter } from '../components/charts/TorqueSpeedScatter';
+import { pulseApi } from '../services/api/pulseApi';
+import { AnalyticsOverviewResponse } from '../types/api';
 import {
   BarChart3,
   Flame,

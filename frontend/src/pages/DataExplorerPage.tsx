@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { Badge, RiskBadge } from '@/components/ui/Badge';
-import { StatCard } from '@/components/ui/StatCard';
-import { pulseApi } from '@/services/api/pulseApi';
-import { PredictionRequest, BatchPredictionResponse } from '@/types/api';
-import { useApp } from '@/context/AppContext';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { Badge, RiskBadge } from '../components/ui/Badge';
+import { StatCard } from '../components/ui/StatCard';
+import { pulseApi } from '../services/api/pulseApi';
+import { PredictionRequest, BatchPredictionResponse } from '../types/api';
+import { useApp } from '../context/AppContext';
 import {
   FileSpreadsheet,
   Upload,

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '../components/ui/Card';
+import { Badge } from '../components/ui/Badge';
 import {
   Info,
   BookOpen,

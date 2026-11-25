@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 import {
   LayoutDashboard,
   Cpu,
@@ -16,7 +16,7 @@ import {
   Server,
   Zap,
 } from 'lucide-react';
-import { useApp } from '@/context/AppContext';
+import { useApp } from '../../context/AppContext';
 
 interface SidebarProps {
   isCollapsed: boolean;

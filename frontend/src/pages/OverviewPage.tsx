@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
-import { StatCard } from '@/components/ui/StatCard';
-import { Button } from '@/components/ui/Button';
-import { Badge, RiskBadge, MachineStatusBadge } from '@/components/ui/Badge';
-import { SensorTrendChart } from '@/components/charts/SensorTrendChart';
-import { FailureDistributionChart } from '@/components/charts/FailureDistributionChart';
-import { useApp } from '@/context/AppContext';
-import { pulseApi } from '@/services/api/pulseApi';
-import { mockTelemetryStream, mockFleetMachines } from '@/services/mock/mockData';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '../components/ui/Card';
+import { StatCard } from '../components/ui/StatCard';
+import { Button } from '../components/ui/Button';
+import { Badge, RiskBadge, MachineStatusBadge } from '../components/ui/Badge';
+import { SensorTrendChart } from '../components/charts/SensorTrendChart';
+import { FailureDistributionChart } from '../components/charts/FailureDistributionChart';
+import { useApp } from '../context/AppContext';
+import { pulseApi } from '../services/api/pulseApi';
+import { mockTelemetryStream, mockFleetMachines } from '../services/mock/mockData';
 import {
   Activity,
   Cpu,

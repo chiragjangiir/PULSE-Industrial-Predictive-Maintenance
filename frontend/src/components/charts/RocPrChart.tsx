@@ -9,7 +9,7 @@ import {
   Tooltip,
   ReferenceLine,
 } from 'recharts';
-import { CurvePoint } from '@/types/api';
+import { CurvePoint } from '../../types/api';
 
 export interface RocPrChartProps {
   type: 'roc' | 'pr';

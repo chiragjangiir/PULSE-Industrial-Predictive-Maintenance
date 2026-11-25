@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 import { X } from 'lucide-react';
 
 export interface DrawerProps {

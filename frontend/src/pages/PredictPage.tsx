@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
-import { RiskBadge } from '@/components/ui/Badge';
-import { Progress } from '@/components/ui/Progress';
-import { Tooltip } from '@/components/ui/Tooltip';
-import { pulseApi } from '@/services/api/pulseApi';
-import { PredictionRequest, PredictionResponse } from '@/types/api';
-import { formatTemperature } from '@/utils/formatters';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { Input } from '../components/ui/Input';
+import { RiskBadge } from '../components/ui/Badge';
+import { Progress } from '../components/ui/Progress';
+import { Tooltip } from '../components/ui/Tooltip';
+import { pulseApi } from '../services/api/pulseApi';
+import { PredictionRequest, PredictionResponse } from '../types/api';
+import { formatTemperature } from '../utils/formatters';
 import {
   Cpu,
   RotateCw,

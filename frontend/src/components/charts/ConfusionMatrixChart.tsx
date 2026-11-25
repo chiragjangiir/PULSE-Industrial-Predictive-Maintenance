@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConfusionMatrix } from '@/types/api';
+import { ConfusionMatrix } from '../../types/api';
 
 export interface ConfusionMatrixChartProps {
   matrix: ConfusionMatrix;

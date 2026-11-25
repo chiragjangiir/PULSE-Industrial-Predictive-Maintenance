@@ -6,7 +6,7 @@ import {
   FailureType,
   FeatureContribution,
   BatchItemPrediction,
-} from '@/types/api';
+} from '../../types/api';
 
 /**
  * High-fidelity domain simulation service based on AI4I 2020 physics rules.

@@ -2,9 +2,9 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { AppProvider } from '@/context/AppContext';
-import { PredictPage } from '@/pages/PredictPage';
-import { pulseApi } from '@/services/api/pulseApi';
+import { AppProvider } from '../context/AppContext';
+import { PredictPage } from '../pages/PredictPage';
+import { pulseApi } from '../services/api/pulseApi';
 
 describe('Machine Diagnostics & Prediction Sandbox Flow', () => {
   beforeEach(() => {

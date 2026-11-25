@@ -1,6 +1,6 @@
 import React from 'react';
-import { cn } from '@/utils/cn';
-import { RiskLevel } from '@/types/api';
+import { cn } from '../../utils/cn';
+import { RiskLevel } from '../../types/api';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: 'default' | 'cyan' | 'emerald' | 'amber' | 'rose' | 'slate';

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { MockPredictionService } from '@/services/mock/mockService';
-import { PredictionRequest } from '@/types/api';
+import { MockPredictionService } from '../services/mock/mockService';
+import { PredictionRequest } from '../types/api';
 
 describe('MockPredictionService Domain Physics Engine', () => {
   it('correctly predicts nominal operating conditions without failure', () => {

@@ -10,15 +10,15 @@ import {
   AnalyticsOverviewResponse,
   RiskLevel,
   FailureType,
-} from '@/types/api';
+} from '../../types/api';
 import {
   mockHealth,
   mockModelInfo,
   mockModelMetrics,
   mockExplainability,
   mockAnalyticsOverview,
-} from '@/services/mock/mockData';
-import { MockPredictionService } from '@/services/mock/mockService';
+} from '../mock/mockData';
+import { MockPredictionService } from '../mock/mockService';
 
 export class PulseApiService {
   private client: ApiClient;

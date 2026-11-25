@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { Badge, RiskBadge } from '@/components/ui/Badge';
-import { useApp } from '@/context/AppContext';
-import { AlertItem } from '@/types/api';
-import { formatTimestamp } from '@/utils/formatters';
-import { mockFleetMachines } from '@/services/mock/mockData';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { Badge, RiskBadge } from '../components/ui/Badge';
+import { useApp } from '../context/AppContext';
+import { AlertItem } from '../types/api';
+import { formatTimestamp } from '../utils/formatters';
+import { mockFleetMachines } from '../services/mock/mockData';
 import {
   AlertTriangle,
   Search,

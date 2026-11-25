@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { HealthResponse, AlertItem } from '@/types/api';
-import { pulseApi } from '@/services/api/pulseApi';
-import { mockAlerts, FleetMachineRecord } from '@/services/mock/mockData';
+import { HealthResponse, AlertItem } from '../types/api';
+import { pulseApi } from '../services/api/pulseApi';
+import { mockAlerts, FleetMachineRecord } from '../services/mock/mockData';
 
 interface Toast {
   id: string;

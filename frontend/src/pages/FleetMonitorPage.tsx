@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
-import { Badge, RiskBadge, MachineStatusBadge } from '@/components/ui/Badge';
-import { Progress } from '@/components/ui/Progress';
-import { useApp } from '@/context/AppContext';
-import { mockFleetMachines, FleetMachineRecord } from '@/services/mock/mockData';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { Input } from '../components/ui/Input';
+import { Badge, RiskBadge, MachineStatusBadge } from '../components/ui/Badge';
+import { Progress } from '../components/ui/Progress';
+import { useApp } from '../context/AppContext';
+import { mockFleetMachines, FleetMachineRecord } from '../services/mock/mockData';
 import {
   Layers,
   Search,

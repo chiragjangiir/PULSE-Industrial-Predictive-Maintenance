@@ -6,7 +6,7 @@ import {
   AnalyticsOverviewResponse,
   AlertItem,
   TelemetryPoint,
-} from '@/types/api';
+} from '../../types/api';
 
 export const mockHealth: HealthResponse = {
   status: 'healthy',

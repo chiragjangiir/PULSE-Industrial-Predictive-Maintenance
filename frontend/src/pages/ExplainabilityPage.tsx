@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
-import { FeatureImportanceChart } from '@/components/charts/FeatureImportanceChart';
-import { pulseApi } from '@/services/api/pulseApi';
-import { ExplainabilityResponse } from '@/types/api';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '../components/ui/Card';
+import { Badge } from '../components/ui/Badge';
+import { FeatureImportanceChart } from '../components/charts/FeatureImportanceChart';
+import { pulseApi } from '../services/api/pulseApi';
+import { ExplainabilityResponse } from '../types/api';
 import {
   Sparkles,
   AlertOctagon,

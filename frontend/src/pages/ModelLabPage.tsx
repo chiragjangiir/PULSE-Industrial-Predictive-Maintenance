@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
-import { RocPrChart } from '@/components/charts/RocPrChart';
-import { ConfusionMatrixChart } from '@/components/charts/ConfusionMatrixChart';
-import { pulseApi } from '@/services/api/pulseApi';
-import { ModelMetricsResponse, EvaluatedModel } from '@/types/api';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '../components/ui/Card';
+import { Badge } from '../components/ui/Badge';
+import { RocPrChart } from '../components/charts/RocPrChart';
+import { ConfusionMatrixChart } from '../components/charts/ConfusionMatrixChart';
+import { pulseApi } from '../services/api/pulseApi';
+import { ModelMetricsResponse, EvaluatedModel } from '../types/api';
 import {
   FlaskConical,
   Award,

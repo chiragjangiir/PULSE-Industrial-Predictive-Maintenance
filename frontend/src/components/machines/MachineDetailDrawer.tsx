@@ -1,10 +1,10 @@
 import React from 'react';
-import { Drawer } from '@/components/ui/Drawer';
-import { RiskBadge, MachineStatusBadge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
-import { Progress } from '@/components/ui/Progress';
-import { formatTemperature } from '@/utils/formatters';
-import { useApp } from '@/context/AppContext';
+import { Drawer } from '../ui/Drawer';
+import { RiskBadge, MachineStatusBadge } from '../ui/Badge';
+import { Button } from '../ui/Button';
+import { Progress } from '../ui/Progress';
+import { formatTemperature } from '../../utils/formatters';
+import { useApp } from '../../context/AppContext';
 import { useNavigate } from 'react-router-dom';
 import { Activity, Gauge, Flame, RotateCw, Wrench, ShieldAlert, Cpu } from 'lucide-react';
 

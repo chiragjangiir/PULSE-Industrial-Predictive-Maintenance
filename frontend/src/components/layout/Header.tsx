@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 import { Menu, Bell, RefreshCw, Cpu, Activity, Database, CheckCircle2, AlertOctagon } from 'lucide-react';
-import { useApp } from '@/context/AppContext';
+import { useApp } from '../../context/AppContext';
 
 interface HeaderProps {
   onMobileMenuOpen: () => void;

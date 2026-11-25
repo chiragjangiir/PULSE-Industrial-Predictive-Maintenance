@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { Header } from './Header';
-import { MachineDetailDrawer } from '@/components/machines/MachineDetailDrawer';
-import { useApp } from '@/context/AppContext';
-import { cn } from '@/utils/cn';
+import { MachineDetailDrawer } from '../machines/MachineDetailDrawer';
+import { useApp } from '../../context/AppContext';
+import { cn } from '../../utils/cn';
 import { CheckCircle2, AlertTriangle, AlertOctagon, Info, X } from 'lucide-react';
 
 export const Layout: React.FC = () => {

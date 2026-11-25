@@ -9,7 +9,7 @@ import {
   Tooltip,
   Cell,
 } from 'recharts';
-import { FeatureImportanceItem } from '@/types/api';
+import { FeatureImportanceItem } from '../../types/api';
 
 export interface FeatureImportanceChartProps {
   data: FeatureImportanceItem[];

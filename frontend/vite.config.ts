@@ -11,9 +11,10 @@ const srcPath = path.resolve(__dirname, 'src')
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
-    alias: [
-      { find: '@', replacement: srcPath },
-    ],
+    tsconfigPaths: true,
+    alias: {
+      '@': srcPath,
+    },
   },
   server: {
     port: 5173,

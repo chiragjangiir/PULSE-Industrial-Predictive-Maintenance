@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from 'recharts';
-import { TelemetryPoint } from '@/types/api';
+import { TelemetryPoint } from '../../types/api';
 
 export interface SensorTrendChartProps {
   data: TelemetryPoint[];
