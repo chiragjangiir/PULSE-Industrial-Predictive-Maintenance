@@ -25,48 +25,48 @@ export const StatCard: React.FC<StatCardProps> = ({
   className,
 }) => {
   const accentBorders = {
-    cyan: 'border-l-cyan-500',
-    emerald: 'border-l-emerald-500',
-    amber: 'border-l-amber-500',
-    rose: 'border-l-rose-500',
+    cyan: 'border-l-sky-500/70',
+    emerald: 'border-l-emerald-500/70',
+    amber: 'border-l-amber-500/70',
+    rose: 'border-l-rose-500/80',
     slate: 'border-l-slate-600',
   };
 
   const accentIcons = {
-    cyan: 'text-cyan-400 bg-cyan-950/40 border-cyan-800/40',
-    emerald: 'text-emerald-400 bg-emerald-950/40 border-emerald-800/40',
-    amber: 'text-amber-400 bg-amber-950/40 border-amber-800/40',
-    rose: 'text-rose-400 bg-rose-950/40 border-rose-800/40',
+    cyan: 'text-sky-400 bg-slate-900 border-slate-800',
+    emerald: 'text-emerald-400 bg-slate-900 border-slate-800',
+    amber: 'text-amber-400 bg-slate-900 border-slate-800',
+    rose: 'text-rose-400 bg-slate-900 border-slate-800',
     slate: 'text-slate-400 bg-slate-900 border-slate-800',
   };
 
   return (
     <div
       className={cn(
-        'relative bg-[#12161f] border border-slate-800/90 border-l-4 rounded-lg p-4 shadow-sm transition-all hover:border-slate-700/80',
+        'relative bg-[#111622] border border-slate-800/90 border-l-2 rounded p-3.5 shadow-xs transition-colors hover:border-slate-700',
         accentBorders[accentColor],
         className
       )}
     >
       <div className="flex items-start justify-between">
         <div>
-          <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400">{title}</span>
-          <div className="text-2xl font-bold font-mono tracking-tight text-slate-100 mt-1">{value}</div>
+          <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">{title}</span>
+          <div className="text-xl font-bold font-mono tracking-tight text-slate-100 mt-0.5 tabular-nums">{value}</div>
         </div>
         {icon && (
-          <div className={cn('p-2 rounded border', accentIcons[accentColor])}>
+          <div className={cn('p-1.5 rounded border', accentIcons[accentColor])}>
             {icon}
           </div>
         )}
       </div>
 
       {(subtitle || trend) && (
-        <div className="mt-3 pt-2.5 border-t border-slate-800/60 flex items-center justify-between text-xs">
+        <div className="mt-2.5 pt-2 border-t border-slate-800/70 flex items-center justify-between text-[11px]">
           {subtitle && <span className="text-slate-400 truncate">{subtitle}</span>}
           {trend && (
             <span
               className={cn(
-                'font-mono text-[11px] font-semibold flex items-center gap-0.5',
+                'font-mono text-[10px] font-medium tabular-nums flex items-center gap-0.5',
                 trend.isNeutral
                   ? 'text-slate-400'
                   : trend.isPositive

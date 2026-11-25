@@ -5,18 +5,26 @@
 
 @layer base {
   :root {
-    --bg-canvas: #090b0e;
-    --bg-surface: #0f1318;
-    --bg-card: #151a22;
-    --bg-card-hover: #1c232e;
-    --border-subtle: #222a36;
-    --border-strong: #333f52;
-    --accent-cyan: #06b6d4;
-    --accent-cyan-glow: rgba(6, 182, 212, 0.15);
-    --status-healthy: #10b981;
+    /* Industrial Control Room Slate Palette (High-Performance HMI) */
+    --bg-canvas: #0b0e14;
+    --bg-surface: #111622;
+    --bg-card: #161d2b;
+    --bg-card-hover: #1c2537;
+    --border-subtle: #212c40;
+    --border-strong: #2e3d58;
+
+    /* Semantic Health & Severity Tokens (ISA-101 / EEMUA 191) */
+    --status-nominal: #10b981;
     --status-warning: #f59e0b;
     --status-critical: #ef4444;
-    --text-primary: #f8fafc;
+    --status-info: #38bdf8;
+
+    /* Primary Data Telemetry Accent */
+    --accent-telemetry: #38bdf8;
+    --accent-telemetry-dim: rgba(56, 189, 248, 0.12);
+
+    /* High-contrast text hierarchy */
+    --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
     --text-muted: #64748b;
   }
@@ -31,40 +39,41 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Custom subtle scrollbar */
+  /* Industrial subtle scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
   }
   ::-webkit-scrollbar-track {
-    background: #090b0e;
+    background: #0b0e14;
   }
   ::-webkit-scrollbar-thumb {
-    background: #222a36;
-    border-radius: 3px;
+    background: #212c40;
+    border-radius: 2px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #333f52;
+    background: #2e3d58;
   }
 }
 
-/* Industrial Grid Background */
+/* Tabular numerals utility for precision industrial telemetry */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle engineering panel grid background */
 .bg-industrial-grid {
-  background-size: 32px 32px;
+  background-size: 24px 24px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
 }
 
-/* Subtle glow utilities */
-.glow-cyan {
-  box-shadow: 0 0 15px -3px rgba(6, 182, 212, 0.25);
+/* Crisp 1px border utilities */
+.border-industrial {
+  border: 1px solid var(--border-subtle);
 }
 
-.glow-amber {
-  box-shadow: 0 0 15px -3px rgba(245, 158, 11, 0.25);
-}
-
-.glow-red {
-  box-shadow: 0 0 15px -3px rgba(239, 68, 68, 0.25);
+.border-industrial-strong {
+  border: 1px solid var(--border-strong);
 }

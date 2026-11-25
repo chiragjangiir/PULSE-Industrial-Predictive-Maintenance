@@ -92,9 +92,9 @@ export const Header: React.FC<HeaderProps> = ({ onMobileMenuOpen }) => {
       {/* Right Controls */}
       <div className="flex items-center gap-2.5 sm:gap-4">
         {/* Real-time Clock */}
-        <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-400">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-          <span>{timeStr || 'LIVE TELEMETRY'}</span>
+        <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-300">
+          <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
+          <span className="tabular-nums tracking-wide">{timeStr || 'TELEMETRY SYNC'}</span>
         </div>
 
         {/* Demo Mode Toggle */}

@@ -61,7 +61,7 @@ export const FeatureImportanceChart: React.FC<FeatureImportanceChartProps> = ({ 
             {sorted.map((entry, index) => (
               <Cell
                 key={`bar-${index}`}
-                fill={index === 0 ? '#06b6d4' : index === 1 ? '#0ea5e9' : index === 2 ? '#38bdf8' : '#64748b'}
+                fill={index < 2 ? '#38bdf8' : '#334155'}
               />
             ))}
           </Bar>

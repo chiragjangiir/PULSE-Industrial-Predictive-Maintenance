@@ -25,7 +25,8 @@ export const FailureDistributionChart: React.FC<FailureDistributionChartProps> =
     };
   });
 
-  const colors = ['#f43f5e', '#f59e0b', '#38bdf8', '#a855f7', '#64748b'];
+  // High-performance HMI single-accent discipline: slate structural bars with active highlight
+  const baseColor = '#3b82f6';
 
   return (
     <div className="w-full h-64">
@@ -57,9 +58,12 @@ export const FailureDistributionChart: React.FC<FailureDistributionChartProps> =
               return null;
             }}
           />
-          <Bar dataKey="count" radius={[4, 4, 0, 0]}>
-            {chartData.map((_, index) => (
-              <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+          <Bar dataKey="count" radius={[3, 3, 0, 0]} fill={baseColor}>
+            {chartData.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={entry.label === 'HDF' || entry.label === 'OSF' ? '#f59e0b' : '#334155'}
+              />
             ))}
           </Bar>
         </BarChart>

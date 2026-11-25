@@ -41,20 +41,17 @@ export const ExplainabilityPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Critical Scientific Caveat Alert */}
-      <div className="p-4 rounded-lg bg-amber-950/30 border border-amber-800/80 flex items-start gap-3 text-xs text-amber-200">
-        <AlertOctagon className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
-        <div className="space-y-1">
-          <strong className="text-amber-100 font-semibold block text-sm">
-            Methodological Notice: Association vs Physical Causation
-          </strong>
-          <p className="leading-relaxed">
-            Feature attributions and TreeSHAP values reflect statistical contributions within the trained decision tree
-            ensembles. While high SHAP values highlight parameters strongly associated with failure events,{' '}
-            <strong>they do not constitute mechanical proof of direct physical causation</strong>. Operators must
-            cross-validate model predictions with physical inspection protocols.
-          </p>
+      {/* Methodological Context Strip */}
+      <div className="px-3.5 py-2.5 rounded bg-[#111622] border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-300">
+        <div className="flex items-center gap-2">
+          <AlertOctagon className="w-4 h-4 text-amber-400 flex-shrink-0" />
+          <span className="text-[11px] text-slate-300 font-mono">
+            <strong className="text-amber-300 font-semibold uppercase tracking-wider">Methodology Note:</strong> TreeSHAP values reflect statistical attribution within tree ensembles, not mechanical proof of direct causation. Cross-validate with physical inspection.
+          </span>
         </div>
+        <Badge variant="slate" size="sm">
+          Lundberg et al. 2020
+        </Badge>
       </div>
 
       {/* Global TreeSHAP Feature Attributions */}

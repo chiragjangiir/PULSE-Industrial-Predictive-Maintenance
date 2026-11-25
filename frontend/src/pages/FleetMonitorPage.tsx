@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { cn } from '../utils/cn';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
@@ -26,7 +27,7 @@ export const FleetMonitorPage: React.FC = () => {
   const { setSelectedMachine } = useApp();
   const navigate = useNavigate();
 
-  const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
+  const [viewMode, setViewMode] = useState<'grid' | 'table'>('table');
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('ALL');
   const [riskFilter, setRiskFilter] = useState<string>('ALL');
@@ -176,55 +177,69 @@ export const FleetMonitorPage: React.FC = () => {
               <div
                 key={m.id}
                 onClick={() => setSelectedMachine(m)}
-                className="bg-[#12161f] border border-slate-800 hover:border-slate-700 rounded-lg p-4 space-y-3.5 cursor-pointer transition-all duration-150 hover:shadow-lg group"
+                className={cn(
+                  'rounded p-3.5 space-y-3 cursor-pointer transition-colors group border',
+                  m.riskScore >= 0.7
+                    ? 'bg-rose-950/25 border-rose-800/80 hover:border-rose-600'
+                    : m.riskScore >= 0.42
+                    ? 'bg-amber-950/20 border-amber-800/60 hover:border-amber-600'
+                    : 'bg-[#111622] border-slate-800 hover:border-slate-700'
+                )}
               >
                 <div className="flex items-start justify-between">
                   <div>
-                    <span className="font-mono text-xs font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">
-                      {m.id}
-                    </span>
-                    <h3 className="text-xs font-semibold text-slate-100 truncate max-w-[150px]">{m.name}</h3>
-                    <span className="text-[10px] text-slate-400 truncate block mt-0.5">{m.location}</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="font-mono text-xs font-bold text-slate-200 group-hover:text-sky-400 transition-colors">
+                        {m.id}
+                      </span>
+                      <span className="text-[10px] font-mono text-slate-400 border border-slate-800 px-1 rounded">
+                        {m.type}-Series
+                      </span>
+                    </div>
+                    <h3 className="text-xs font-medium text-slate-100 truncate max-w-[160px] mt-0.5">{m.name}</h3>
+                    <span className="text-[10px] text-slate-400 truncate block">{m.location}</span>
                   </div>
                   <MachineStatusBadge status={m.status} />
                 </div>
 
                 {/* Risk Bar */}
-                <div className="space-y-1 p-2.5 rounded bg-[#0a0d14] border border-slate-800/80">
-                  <div className="flex justify-between items-center text-[11px] font-mono">
+                <div className="space-y-1 p-2 rounded bg-[#0b0e14] border border-slate-800/80">
+                  <div className="flex justify-between items-center text-[10px] font-mono tabular-nums">
                     <span className="text-slate-400">Risk Assessment:</span>
-                    <span className="font-bold text-slate-200">{(m.riskScore * 100).toFixed(0)}%</span>
+                    <span className={cn('font-bold', m.riskScore >= 0.7 ? 'text-rose-400' : m.riskScore >= 0.42 ? 'text-amber-400' : 'text-slate-300')}>
+                      {(m.riskScore * 100).toFixed(0)}%
+                    </span>
                   </div>
                   <Progress value={m.riskScore * 100} threshold={42} variant="risk" size="sm" />
                 </div>
 
                 {/* Mini Telemetry Grid */}
-                <div className="grid grid-cols-2 gap-2 text-[10px] font-mono text-slate-300">
-                  <div className="flex items-center gap-1.5 p-1.5 rounded bg-slate-900/60">
-                    <RotateCw className="w-3 h-3 text-cyan-400" />
+                <div className="grid grid-cols-2 gap-1.5 text-[10px] font-mono text-slate-300 tabular-nums">
+                  <div className="flex items-center justify-between p-1 rounded bg-slate-900/60 border border-slate-800/60">
+                    <span className="text-slate-400">Speed:</span>
                     <span>{m.speed} rpm</span>
                   </div>
-                  <div className="flex items-center gap-1.5 p-1.5 rounded bg-slate-900/60">
-                    <Gauge className="w-3 h-3 text-indigo-400" />
+                  <div className="flex items-center justify-between p-1 rounded bg-slate-900/60 border border-slate-800/60">
+                    <span className="text-slate-400">Torque:</span>
                     <span>{m.torque} Nm</span>
                   </div>
-                  <div className="flex items-center gap-1.5 p-1.5 rounded bg-slate-900/60">
-                    <Flame className="w-3 h-3 text-amber-400" />
+                  <div className="flex items-center justify-between p-1 rounded bg-slate-900/60 border border-slate-800/60">
+                    <span className="text-slate-400">Temp:</span>
                     <span>{m.processTemp} K</span>
                   </div>
-                  <div className="flex items-center gap-1.5 p-1.5 rounded bg-slate-900/60">
-                    <Wrench className="w-3 h-3 text-pink-400" />
-                    <span>{m.toolWear} min</span>
+                  <div className="flex items-center justify-between p-1 rounded bg-slate-900/60 border border-slate-800/60">
+                    <span className="text-slate-400">Wear:</span>
+                    <span className={m.toolWear >= 200 ? 'text-rose-400 font-bold' : ''}>{m.toolWear} min</span>
                   </div>
                 </div>
 
                 {/* Action Footer */}
                 <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                  <span className="text-[10px] text-slate-400 truncate max-w-[120px]">{m.primaryRisk}</span>
+                  <span className="text-[10px] text-slate-400 truncate max-w-[130px] font-mono">{m.primaryRisk}</span>
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="h-7 text-[11px] px-2 text-cyan-400 hover:text-cyan-300"
+                    className="h-6 text-[10px] px-2 text-sky-400 hover:text-sky-300 hover:bg-slate-800 font-mono"
                     onClick={(e) => handleDiagnose(e, m)}
                   >
                     Diagnose

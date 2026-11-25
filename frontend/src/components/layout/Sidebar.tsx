@@ -99,16 +99,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* Brand Header */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-slate-800/80 bg-[#0d1118]">
           <div className="flex items-center gap-3 overflow-hidden">
-            <div className="w-8 h-8 rounded bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-sm shadow-cyan-500/20 flex-shrink-0">
-              <Zap className="w-5 h-5 text-black fill-black" />
+            <div className="w-8 h-8 rounded bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0 text-sky-400">
+              <Zap className="w-4 h-4 fill-sky-400/20 text-sky-400" />
             </div>
             {!isCollapsed && (
               <div className="flex flex-col">
                 <span className="font-mono text-base font-bold tracking-wider text-slate-100 leading-tight">
                   PULSE
                 </span>
-                <span className="text-[10px] text-cyan-400 font-mono tracking-wider uppercase">
-                  Industrial Intel
+                <span className="text-[10px] text-slate-400 font-mono tracking-wider uppercase">
+                  Reliability Workbench
                 </span>
               </div>
             )}
@@ -140,7 +140,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     cn(
                       'flex items-center gap-3 px-3 py-2 text-xs font-medium rounded transition-colors relative group',
                       isActive
-                        ? 'bg-cyan-950/40 text-cyan-400 border border-cyan-800/60 font-semibold'
+                        ? 'bg-slate-800/90 text-sky-400 border-l-2 border-l-sky-400 border-slate-700/50 font-medium'
                         : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 border border-transparent'
                     )
                   }

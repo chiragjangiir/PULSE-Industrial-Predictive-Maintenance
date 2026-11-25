@@ -23,11 +23,11 @@ export const ConfusionMatrixChart: React.FC<ConfusionMatrixChartProps> = ({ matr
         </div>
 
         {/* Row 1: Actual Normal */}
-        <div className="p-3.5 rounded bg-emerald-950/20 border border-emerald-800/40">
-          <span className="text-[10px] text-emerald-400 uppercase tracking-wider block mb-1">
-            True Negative (TN)
+        <div className="p-3.5 rounded bg-slate-900/80 border border-slate-800">
+          <span className="text-[10px] text-slate-400 uppercase tracking-wider block mb-1">
+            True Negative (TN - Normal Kept Running)
           </span>
-          <span className="text-xl font-bold text-slate-100">{true_negatives.toLocaleString()}</span>
+          <span className="text-xl font-bold text-slate-100 tabular-nums">{true_negatives.toLocaleString()}</span>
           <span className="text-[10px] text-slate-400 block mt-1">
             {((true_negatives / total) * 100).toFixed(1)}% of test set
           </span>
@@ -37,30 +37,30 @@ export const ConfusionMatrixChart: React.FC<ConfusionMatrixChartProps> = ({ matr
           <span className="text-[10px] text-amber-400 uppercase tracking-wider block mb-1">
             False Positive (FP - False Alarm)
           </span>
-          <span className="text-xl font-bold text-slate-100">{false_positives.toLocaleString()}</span>
-          <span className="text-[10px] text-slate-400 block mt-1">
-            {((false_positives / total) * 100).toFixed(1)}% of test set
+          <span className="text-xl font-bold text-amber-200 tabular-nums">{false_positives.toLocaleString()}</span>
+          <span className="text-[10px] text-amber-400/80 block mt-1">
+            {((false_positives / total) * 100).toFixed(1)}% false alarms
           </span>
         </div>
 
         {/* Row 2: Actual Failure */}
-        <div className="p-3.5 rounded bg-rose-950/20 border border-rose-800/40">
-          <span className="text-[10px] text-rose-400 uppercase tracking-wider block mb-1">
-            False Negative (FN - Missed)
+        <div className="p-3.5 rounded bg-rose-950/25 border border-rose-800/50">
+          <span className="text-[10px] text-rose-400 uppercase tracking-wider block mb-1 font-bold">
+            False Negative (FN - Missed Breakdown)
           </span>
-          <span className="text-xl font-bold text-slate-100">{false_negatives.toLocaleString()}</span>
-          <span className="text-[10px] text-slate-400 block mt-1">
-            {((false_negatives / total) * 100).toFixed(1)}% of test set
+          <span className="text-xl font-bold text-rose-200 tabular-nums">{false_negatives.toLocaleString()}</span>
+          <span className="text-[10px] text-rose-400/80 block mt-1 font-medium">
+            {((false_negatives / total) * 100).toFixed(1)}% missed defects
           </span>
         </div>
 
-        <div className="p-3.5 rounded bg-cyan-950/20 border border-cyan-800/40">
-          <span className="text-[10px] text-cyan-400 uppercase tracking-wider block mb-1">
-            True Positive (TP - Caught)
+        <div className="p-3.5 rounded bg-sky-950/20 border border-sky-800/40">
+          <span className="text-[10px] text-sky-400 uppercase tracking-wider block mb-1">
+            True Positive (TP - Intercepted)
           </span>
-          <span className="text-xl font-bold text-slate-100">{true_positives.toLocaleString()}</span>
+          <span className="text-xl font-bold text-slate-100 tabular-nums">{true_positives.toLocaleString()}</span>
           <span className="text-[10px] text-slate-400 block mt-1">
-            {((true_positives / total) * 100).toFixed(1)}% of test set
+            {((true_positives / total) * 100).toFixed(1)}% caught defects
           </span>
         </div>
       </div>

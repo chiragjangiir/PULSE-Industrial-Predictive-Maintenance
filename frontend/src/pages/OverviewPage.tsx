@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { cn } from '../utils/cn';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '../components/ui/Card';
 import { StatCard } from '../components/ui/StatCard';
 import { Button } from '../components/ui/Button';
@@ -79,21 +80,50 @@ export const OverviewPage: React.FC = () => {
         </div>
       )}
 
+      {/* Shift Operational Readiness Posture */}
+      <div className="bg-[#111622] border border-slate-800 rounded p-4 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-rose-500" />
+            <span className="text-xs font-mono uppercase tracking-wider text-slate-200 font-bold">
+              Shift Operational Status: 1 Urgent Triage Required
+            </span>
+          </div>
+          <p className="text-xs text-slate-400">
+            Plant status: 3 units nominal, 4 units under early degradation advisory, 1 machine (MCH-L-1044) at critical trip risk.
+          </p>
+        </div>
+
+        {/* Operational Proportion Strip */}
+        <div className="flex flex-col gap-1.5 w-full lg:w-72">
+          <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 tabular-nums">
+            <span className="text-emerald-400 font-medium">37.5% Nominal</span>
+            <span className="text-amber-400 font-medium">50.0% Advisory</span>
+            <span className="text-rose-400 font-bold">12.5% Critical</span>
+          </div>
+          <div className="w-full h-1.5 rounded bg-slate-800 flex overflow-hidden">
+            <div className="bg-emerald-500/80 h-full" style={{ width: '37.5%' }} />
+            <div className="bg-amber-500/80 h-full" style={{ width: '50%' }} />
+            <div className="bg-rose-500 h-full" style={{ width: '12.5%' }} />
+          </div>
+        </div>
+      </div>
+
       {/* Top Stat Tiles */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
         <StatCard
           title="Monitored Fleet"
           value={`${totalMachines} Units`}
           subtitle={`${operationalCount} Running Nominal`}
-          icon={<Layers className="w-5 h-5" />}
+          icon={<Layers className="w-4 h-4" />}
           accentColor="cyan"
-          trend={{ value: '100% online', isPositive: true }}
+          trend={{ value: '100% telemetry online', isPositive: true }}
         />
         <StatCard
           title="Critical Risk Machines"
           value={criticalCount}
           subtitle="Immediate triage required"
-          icon={<AlertTriangle className="w-5 h-5" />}
+          icon={<AlertTriangle className="w-4 h-4" />}
           accentColor="rose"
           trend={{ value: `${criticalCount} units flagged`, isPositive: false }}
         />
@@ -101,7 +131,7 @@ export const OverviewPage: React.FC = () => {
           title="High Probability Risks"
           value={atRiskCount}
           subtitle="Threshold >= 0.42"
-          icon={<Activity className="w-5 h-5" />}
+          icon={<Activity className="w-4 h-4" />}
           accentColor="amber"
           trend={{ value: `${((atRiskCount / totalMachines) * 100).toFixed(0)}% of fleet`, isNeutral: true }}
         />
@@ -109,7 +139,7 @@ export const OverviewPage: React.FC = () => {
           title="Production Model"
           value={modelInfo ? modelInfo.version : 'v1.2.0'}
           subtitle={modelInfo ? modelInfo.model_type.split(' ')[0] : 'XGBoost'}
-          icon={<Cpu className="w-5 h-5" />}
+          icon={<Cpu className="w-4 h-4" />}
           accentColor="emerald"
           trend={{ value: 'Calibrated', isPositive: true }}
         />
@@ -156,29 +186,41 @@ export const OverviewPage: React.FC = () => {
               </Button>
             </Link>
           </CardHeader>
-          <CardContent className="space-y-3 p-4">
+          <CardContent className="space-y-2.5 p-3.5">
             {rankedMachines.map((machine) => (
               <div
                 key={machine.id}
                 onClick={() => setSelectedMachine(machine)}
-                className="p-3 rounded bg-[#0f141d] border border-slate-800 hover:border-slate-700 transition-all cursor-pointer flex items-center justify-between group"
+                className={cn(
+                  'p-2.5 rounded border transition-colors cursor-pointer flex items-center justify-between group',
+                  machine.riskScore >= 0.7
+                    ? 'bg-rose-950/20 border-rose-900/60 hover:border-rose-700/80'
+                    : machine.riskScore >= 0.42
+                    ? 'bg-amber-950/15 border-amber-900/50 hover:border-amber-700/70'
+                    : 'bg-[#111622] border-slate-800 hover:border-slate-700'
+                )}
               >
-                <div>
+                <div className="min-w-0 pr-2">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">
+                    <span className="font-mono text-xs font-bold text-slate-200 group-hover:text-sky-400 transition-colors">
                       {machine.id}
                     </span>
-                    <Badge variant="slate" size="sm">
+                    <span className="text-[10px] font-mono text-slate-400 border border-slate-800 px-1 rounded">
                       Series {machine.type}
-                    </Badge>
+                    </span>
+                    {machine.riskScore >= 0.7 && (
+                      <span className="text-[9px] font-mono uppercase bg-rose-500/20 text-rose-400 px-1 py-0.5 rounded font-semibold">
+                        &lt; 2h Cutoff
+                      </span>
+                    )}
                   </div>
-                  <div className="text-[11px] text-slate-400 mt-0.5 truncate max-w-[170px]">
+                  <div className="text-[11px] text-slate-400 mt-0.5 truncate max-w-[200px]">
                     {machine.primaryRisk}
                   </div>
                 </div>
 
-                <div className="text-right">
-                  <div className="font-mono text-xs font-bold text-slate-100">
+                <div className="text-right flex-shrink-0">
+                  <div className="font-mono text-xs font-bold text-slate-100 tabular-nums">
                     {(machine.riskScore * 100).toFixed(0)}%
                   </div>
                   <RiskBadge

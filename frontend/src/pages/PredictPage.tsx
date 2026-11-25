@@ -51,6 +51,7 @@ export const PredictPage: React.FC = () => {
   const [result, setResult] = useState<PredictionResponse | null>(null);
   const [isSimulatedResponse, setIsSimulatedResponse] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [workOrderGenerated, setWorkOrderGenerated] = useState(false);
 
   // Derived metrics
   const tempDiff = parseFloat((processTemp - airTemp).toFixed(1));
@@ -143,31 +144,31 @@ export const PredictPage: React.FC = () => {
           <span className="text-[10px] font-mono uppercase text-slate-400 mr-1">Presets:</span>
           <button
             onClick={() => applyPreset('nominal')}
-            className="px-2 py-1 text-[11px] font-mono rounded bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+            className="px-2.5 py-1 text-[11px] font-mono rounded bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700 transition-colors"
           >
             Nominal
           </button>
           <button
             onClick={() => applyPreset('twf')}
-            className="px-2 py-1 text-[11px] font-mono rounded bg-rose-950/40 text-rose-300 border border-rose-800/60 hover:bg-rose-900/40 transition-colors"
+            className="px-2.5 py-1 text-[11px] font-mono rounded bg-slate-900 text-rose-300 border border-rose-900/60 hover:border-rose-700 transition-colors"
           >
             Tool Wear (TWF)
           </button>
           <button
             onClick={() => applyPreset('hdf')}
-            className="px-2 py-1 text-[11px] font-mono rounded bg-amber-950/40 text-amber-300 border border-amber-800/60 hover:bg-amber-900/40 transition-colors"
+            className="px-2.5 py-1 text-[11px] font-mono rounded bg-slate-900 text-amber-300 border border-amber-900/60 hover:border-amber-700 transition-colors"
           >
             Heat Deficit (HDF)
           </button>
           <button
             onClick={() => applyPreset('pwf')}
-            className="px-2 py-1 text-[11px] font-mono rounded bg-indigo-950/40 text-indigo-300 border border-indigo-800/60 hover:bg-indigo-900/40 transition-colors"
+            className="px-2.5 py-1 text-[11px] font-mono rounded bg-slate-900 text-sky-300 border border-sky-900/60 hover:border-sky-700 transition-colors"
           >
             Power Anomaly (PWF)
           </button>
           <button
             onClick={() => applyPreset('osf')}
-            className="px-2 py-1 text-[11px] font-mono rounded bg-purple-950/40 text-purple-300 border border-purple-800/60 hover:bg-purple-900/40 transition-colors"
+            className="px-2.5 py-1 text-[11px] font-mono rounded bg-slate-900 text-purple-300 border border-purple-900/60 hover:border-purple-700 transition-colors"
           >
             Overstrain (OSF)
           </button>
@@ -230,7 +231,7 @@ export const PredictPage: React.FC = () => {
                   step="0.1"
                   value={airTemp}
                   onChange={(e) => setAirTemp(parseFloat(e.target.value))}
-                  className="w-full accent-cyan-500 cursor-pointer"
+                  className="w-full accent-sky-500 cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] font-mono text-slate-400">
                   <span>295.0 K (21.9 °C)</span>
@@ -254,7 +255,7 @@ export const PredictPage: React.FC = () => {
                   step="0.1"
                   value={processTemp}
                   onChange={(e) => setProcessTemp(parseFloat(e.target.value))}
-                  className="w-full accent-cyan-500 cursor-pointer"
+                  className="w-full accent-sky-500 cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] font-mono text-slate-400">
                   <span>305.0 K</span>
@@ -280,7 +281,7 @@ export const PredictPage: React.FC = () => {
                   step="10"
                   value={rotationalSpeed}
                   onChange={(e) => setRotationalSpeed(parseInt(e.target.value))}
-                  className="w-full accent-cyan-500 cursor-pointer"
+                  className="w-full accent-sky-500 cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] font-mono text-slate-400">
                   <span>1,150 rpm</span>
@@ -304,7 +305,7 @@ export const PredictPage: React.FC = () => {
                   step="0.5"
                   value={torque}
                   onChange={(e) => setTorque(parseFloat(e.target.value))}
-                  className="w-full accent-cyan-500 cursor-pointer"
+                  className="w-full accent-sky-500 cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] font-mono text-slate-400">
                   <span>3.0 Nm</span>
@@ -330,7 +331,7 @@ export const PredictPage: React.FC = () => {
                   step="1"
                   value={toolWear}
                   onChange={(e) => setToolWear(parseInt(e.target.value))}
-                  className="w-full accent-cyan-500 cursor-pointer"
+                  className="w-full accent-sky-500 cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] font-mono text-slate-400">
                   <span>0 min (New Blade)</span>
@@ -443,12 +444,28 @@ export const PredictPage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Operational Recommendation */}
-                  <div className="p-3.5 rounded bg-[#0f141d] border border-slate-800 space-y-1">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold block">
-                      Recommended Operator Action
-                    </span>
-                    <p className="text-xs text-slate-200 leading-relaxed font-sans">{result.recommendation}</p>
+                  {/* Operational Recommendation & Action Linkage */}
+                  <div className="p-3.5 rounded bg-[#111622] border border-slate-800 space-y-2.5">
+                    <div>
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold block">
+                        Recommended Operator Action
+                      </span>
+                      <p className="text-xs text-slate-200 leading-relaxed font-sans mt-0.5">{result.recommendation}</p>
+                    </div>
+
+                    <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between">
+                      <span className="text-[10px] font-mono text-slate-400">
+                        {workOrderGenerated ? 'Status: Work Order Dispatched' : 'Action Loop: Ready to dispatch'}
+                      </span>
+                      <Button
+                        variant={workOrderGenerated ? 'outline' : 'secondary'}
+                        size="sm"
+                        className="h-7 text-xs font-mono"
+                        onClick={() => setWorkOrderGenerated(!workOrderGenerated)}
+                      >
+                        {workOrderGenerated ? '✓ Ticket #WO-9042 Active' : 'Dispatch Maintenance Ticket'}
+                      </Button>
+                    </div>
                   </div>
 
                   {/* Local Feature Contributions (SHAP Waterfall breakdown) */}

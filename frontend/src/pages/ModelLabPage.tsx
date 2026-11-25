@@ -233,7 +233,7 @@ export const ModelLabPage: React.FC = () => {
                   step="0.01"
                   value={thresholdSlider}
                   onChange={(e) => setThresholdSlider(parseFloat(e.target.value))}
-                  className="w-full accent-cyan-500 cursor-pointer"
+                  className="w-full accent-sky-500 cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] font-mono text-slate-400">
                   <span>0.10 (High Sensitivity / Catch All)</span>
@@ -264,11 +264,11 @@ export const ModelLabPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-3 rounded bg-cyan-950/20 border border-cyan-800/40 text-[11px] text-slate-300 leading-relaxed">
-                <strong>Industrial Trade-Off Rationale:</strong> In milling operations, an undetected breakdown (False
-                Negative) costs ~$4,500 in ruined stock and emergency downtime, whereas a precautionary false alarm
-                (False Positive) costs only ~$150 in inspection time. Therefore, tuning the decision cutoff to{' '}
-                <code>τ = 0.42</code> maximizes Recall without overwhelming operators with false alarms.
+              <div className="p-3 rounded bg-slate-900 border border-slate-800 text-[11px] text-slate-300 leading-relaxed font-sans">
+                <strong className="text-slate-100 font-mono text-[10px] uppercase tracking-wider block mb-1">Industrial Asymmetric Cost Trade-Off:</strong> In milling operations, an undetected breakdown (False
+                Negative) costs ~$4,500 in ruined workpiece stock and emergency downtime, whereas a precautionary false alarm
+                (False Positive) costs only ~$150 in technician inspection time. Therefore, tuning the decision cutoff to{' '}
+                <span className="font-mono text-amber-300 font-bold">τ = 0.42</span> maximizes Recall (82.5%) without overwhelming operators.
               </div>
             </CardContent>
           </Card>
