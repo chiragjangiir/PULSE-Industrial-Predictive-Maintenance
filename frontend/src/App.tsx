@@ -1,25 +1,27 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { Layout } from './components/layout/Layout';
+
+// Immediate load for primary command center
 import { OverviewPage } from './pages/OverviewPage';
 
-// Lazy load secondary routes to optimize initial bundle size & code splitting
-const FleetMonitorPage = React.lazy(() => import('./pages/FleetMonitorPage').then(m => ({ default: m.FleetMonitorPage })));
-const PredictPage = React.lazy(() => import('./pages/PredictPage').then(m => ({ default: m.PredictPage })));
-const MaintenanceAlertsPage = React.lazy(() => import('./pages/MaintenanceAlertsPage').then(m => ({ default: m.MaintenanceAlertsPage })));
-const AnalyticsPage = React.lazy(() => import('./pages/AnalyticsPage').then(m => ({ default: m.AnalyticsPage })));
-const ModelLabPage = React.lazy(() => import('./pages/ModelLabPage').then(m => ({ default: m.ModelLabPage })));
-const ExplainabilityPage = React.lazy(() => import('./pages/ExplainabilityPage').then(m => ({ default: m.ExplainabilityPage })));
-const DataExplorerPage = React.lazy(() => import('./pages/DataExplorerPage').then(m => ({ default: m.DataExplorerPage })));
-const AboutPage = React.lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+// Code-split secondary views for optimized production bundle size
+const PredictPage = lazy(() => import('./pages/PredictPage').then(m => ({ default: m.PredictPage })));
+const FleetMonitorPage = lazy(() => import('./pages/FleetMonitorPage').then(m => ({ default: m.FleetMonitorPage })));
+const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage').then(m => ({ default: m.AnalyticsPage })));
+const ModelLabPage = lazy(() => import('./pages/ModelLabPage').then(m => ({ default: m.ModelLabPage })));
+const ExplainabilityPage = lazy(() => import('./pages/ExplainabilityPage').then(m => ({ default: m.ExplainabilityPage })));
+const MaintenanceAlertsPage = lazy(() => import('./pages/MaintenanceAlertsPage').then(m => ({ default: m.MaintenanceAlertsPage })));
+const DataExplorerPage = lazy(() => import('./pages/DataExplorerPage').then(m => ({ default: m.DataExplorerPage })));
+const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
 
-const PageLoader: React.FC = () => (
-  <div className="flex flex-col items-center justify-center min-h-[50vh] gap-3">
-    <div className="w-8 h-8 border-2 border-cyan-500/20 border-t-cyan-400 rounded-full animate-spin" />
-    <span className="text-xs uppercase font-mono tracking-wider text-slate-500">
-      Loading SCADA Telemetry & Models...
-    </span>
+const RouteLoadingFallback: React.FC = () => (
+  <div className="flex items-center justify-center min-h-[50vh]">
+    <div className="flex flex-col items-center gap-3">
+      <div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin" />
+      <span className="text-xs font-mono text-slate-400">LOADING TELEMETRY MODULE...</span>
+    </div>
   </div>
 );
 
@@ -33,7 +35,7 @@ export const App: React.FC = () => {
             <Route
               path="fleet"
               element={
-                <Suspense fallback={<PageLoader />}>
+                <Suspense fallback={<RouteLoadingFallback />}>
                   <FleetMonitorPage />
                 </Suspense>
               }
@@ -41,7 +43,7 @@ export const App: React.FC = () => {
             <Route
               path="predict"
               element={
-                <Suspense fallback={<PageLoader />}>
+                <Suspense fallback={<RouteLoadingFallback />}>
                   <PredictPage />
                 </Suspense>
               }
@@ -49,7 +51,7 @@ export const App: React.FC = () => {
             <Route
               path="alerts"
               element={
-                <Suspense fallback={<PageLoader />}>
+                <Suspense fallback={<RouteLoadingFallback />}>
                   <MaintenanceAlertsPage />
                 </Suspense>
               }
@@ -57,7 +59,7 @@ export const App: React.FC = () => {
             <Route
               path="analytics"
               element={
-                <Suspense fallback={<PageLoader />}>
+                <Suspense fallback={<RouteLoadingFallback />}>
                   <AnalyticsPage />
                 </Suspense>
               }
@@ -65,7 +67,7 @@ export const App: React.FC = () => {
             <Route
               path="model-lab"
               element={
-                <Suspense fallback={<PageLoader />}>
+                <Suspense fallback={<RouteLoadingFallback />}>
                   <ModelLabPage />
                 </Suspense>
               }
@@ -73,7 +75,7 @@ export const App: React.FC = () => {
             <Route
               path="explainability"
               element={
-                <Suspense fallback={<PageLoader />}>
+                <Suspense fallback={<RouteLoadingFallback />}>
                   <ExplainabilityPage />
                 </Suspense>
               }
@@ -81,7 +83,7 @@ export const App: React.FC = () => {
             <Route
               path="explorer"
               element={
-                <Suspense fallback={<PageLoader />}>
+                <Suspense fallback={<RouteLoadingFallback />}>
                   <DataExplorerPage />
                 </Suspense>
               }
@@ -89,7 +91,7 @@ export const App: React.FC = () => {
             <Route
               path="about"
               element={
-                <Suspense fallback={<PageLoader />}>
+                <Suspense fallback={<RouteLoadingFallback />}>
                   <AboutPage />
                 </Suspense>
               }

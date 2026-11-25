@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: pulse-backend-api
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: PYTHONPATH
+        value: .
+      - key: ENVIRONMENT
+        value: production
+      - key: CORS_ORIGINS
+        value: "https://frontend-omega-woad-22.vercel.app,https://dist-one-snowy-19.vercel.app,http://localhost:5173"
+      - key: PULSE_ARTIFACTS_DIR
+        value: artifacts
