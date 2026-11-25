@@ -56,3 +56,29 @@
 ## Backend Test Results
 - **Total Tests**: 11 passed (100%)
 - **Test execution**: `pytest backend/tests/ -v` (1.81s)
+
+
+---
+
+## Part B Status Overview (Frontend Lead Milestone Completion)
+- [x] **Phase 1: React 19 + TypeScript + Vite 8 Architecture**
+  - Scaffolded inside `frontend/` directory with strict typing.
+  - Industrial design tokens configured in Tailwind CSS 4 (`#090b0e` graphite surfaces, cyan/amber/rose semantic indicators).
+- [x] **Phase 2: Core Design System Primitives**
+  - Reusable components: `Button`, `Badge`, `RiskBadge`, `Card`, `StatCard`, `Progress`, `Input`, `Drawer`, `Modal`, `Tabs`, `Tooltip`.
+- [x] **Phase 3: 9 Comprehensive Pages Implemented**
+  - **Overview / Command Center (`/`):** Fleet telemetry stream, real-time risk watchlist, health KPI cards.
+  - **Machine Intelligence / Predict (`/predict`):** Tactile controls with 5 scenario presets, instant inference, local SHAP waterfall.
+  - **Fleet Monitor (`/fleet`):** List & grid views, multi-attribute filter, machine detail drawer.
+  - **Analytics Studio (`/analytics`):** AI4I 2020 EDA distributions, machine quality comparison, torque-speed envelope.
+  - **Model Lab (`/model-lab`):** Multi-model comparison, ROC & PR curves, confusion matrix, interactive threshold slider ($\theta \in [0.10, 0.80]$).
+  - **Explainability (`/explainability`):** Global TreeSHAP feature attributions, physical failure driver breakdown, and ethical attribution disclaimer.
+  - **Maintenance Alerts (`/alerts`):** Triage table, acknowledge/resolve workflow, and CSV export.
+  - **Data Explorer (`/explorer`):** Drag-and-drop batch CSV predictor, template generator, validation, and enriched export.
+  - **Project & References (`/about`):** Mathematical formulations, imbalance handling, citations.
+- [x] **Phase 4: API Integration Layer**
+  - Configured client for `/api` with auto-fallback to domain physics simulation engine (`MockPredictionService`).
+  - Top-bar switch for Live FastAPI vs Demo Simulation Mode.
+- [x] **Phase 5: Automated Testing & Verification**
+  - Vitest + Testing Library: 13 passed tests across 4 test suites (100% pass rate).
+  - Production build: `tsc -b && vite build` succeeds cleanly in < 2.1s.
