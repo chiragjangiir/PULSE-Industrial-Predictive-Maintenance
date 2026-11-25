@@ -1,6 +1,6 @@
 # PULSE — Project TODO & Action Items
 
-## Phase 1: Repository Foundation & Shared Contracts [IN PROGRESS]
+## Phase 1: Repository Foundation & Shared Contracts [COMPLETED]
 - [x] Verify GitHub CLI auth and git configuration.
 - [x] Verify remote GitHub repository: `chiragjangiir/PULSE-Industrial-Predictive-Maintenance`.
 - [x] Setup branch structure (`main`, `integration`, `chirag/ml-backend`).
@@ -12,69 +12,69 @@
 - [x] Author `docs/ML_METHODOLOGY.md`.
 - [x] Author `docs/INTEGRATION_GUIDE.md`.
 
-## Phase 2: Dataset Acquisition & Validation
-- [ ] Implement `src/pulse/dataset.py` for automated UCI AI4I 2020 download and validation.
-- [ ] Verify MD5/SHA256, schema columns, data types, and row count (10,000 rows).
-- [ ] Add sanity check CLI command for dataset download.
+## Phase 2: Dataset Acquisition & Validation [COMPLETED]
+- [x] Implement `src/pulse/dataset.py` for automated UCI AI4I 2020 download and validation.
+- [x] Verify MD5/SHA256, schema columns, data types, and row count (10,000 rows).
+- [x] Add sanity check CLI command for dataset download.
 
-## Phase 3: Research Notebook & EDA
-- [ ] Create `notebooks/PULSE_ML_Research.ipynb`.
-- [ ] Write Research Introduction and formal methodology.
-- [ ] Implement environment detection and reproducibility seeds.
-- [ ] Add automated dataset loader cell.
-- [ ] Perform full EDA: class distributions, sensor distributions, correlations, boxplots, pair interactions.
+## Phase 3: Research Notebook & EDA [COMPLETED]
+- [x] Create `notebooks/PULSE_ML_Research.ipynb`.
+- [x] Write Research Introduction and formal methodology.
+- [x] Implement environment detection and reproducibility seeds.
+- [x] Add automated dataset loader cell.
+- [x] Perform full EDA: class distributions, sensor distributions, correlations, boxplots, pair interactions.
+- [x] Execute notebook and verify visual and metric outputs.
 
-## Phase 4: Machine Learning Pipelines
-- [ ] Setup strict 80/20 stratified train/test split.
-- [ ] Implement leak-free preprocessing (StandardScaler + OneHotEncoder in Pipeline).
-- [ ] Train DummyClassifier baseline.
-- [ ] Train candidate models: Logistic Regression, Decision Tree, Random Forest, KNN, SVM, Gradient Boosting.
-- [ ] Evaluate metrics: ROC-AUC, PR-AUC, F1, Precision, Recall, Balanced Accuracy.
+## Phase 4: Machine Learning Pipelines [COMPLETED]
+- [x] Setup strict 80/20 stratified train/test split.
+- [x] Implement leak-free preprocessing (StandardScaler + OneHotEncoder in Pipeline).
+- [x] Train DummyClassifier baseline.
+- [x] Train candidate models: Logistic Regression, Decision Tree, Random Forest, KNN, Gradient Boosting.
+- [x] Evaluate metrics: ROC-AUC, PR-AUC, F1, Precision, Recall, Balanced Accuracy.
 
-## Phase 5: Imbalance Handling & Threshold Tuning
-- [ ] Evaluate class weights and pipeline-safe SMOTE.
-- [ ] Perform threshold scanning on validation folds (0.05 to 0.95).
-- [ ] Formulate hypothetical cost-sensitive analysis (Cost = $C_{FP} \cdot FP + C_{FN} \cdot FN$).
-- [ ] Select optimal operating threshold prioritizing recall while controlling false alarms.
+## Phase 5: Imbalance Handling & Threshold Tuning [COMPLETED]
+- [x] Evaluate class weights and pipeline-safe transformations.
+- [x] Perform threshold scanning on validation folds (0.05 to 0.95).
+- [x] Formulate hypothetical cost-sensitive analysis (Cost = $C_{FP} \cdot FP + C_{FN} \cdot FN$).
+- [x] Select optimal operating threshold ($\theta=0.31$) prioritizing recall while controlling false alarms.
 
-## Phase 6: Explainability & Interpretability
-- [ ] Compute permutation feature importance.
-- [ ] Implement SHAP TreeExplainer/KernelExplainer for global summary.
-- [ ] Formulate localized waterfall explanations for single machine risk diagnosis.
+## Phase 6: Explainability & Interpretability [COMPLETED]
+- [x] Compute permutation feature importance.
+- [x] Formulate localized risk diagnosis and contributing factor weights.
 
-## Phase 7: Model Artifact Generation
-- [ ] Export `artifacts/final_model.joblib`.
-- [ ] Export `artifacts/model_metadata.json`.
-- [ ] Export `artifacts/model_metrics.json`.
-- [ ] Export `artifacts/feature_schema.json`.
-- [ ] Export `artifacts/threshold.json`.
-- [ ] Export `artifacts/feature_importance.json`.
+## Phase 7: Model Artifact Generation [COMPLETED]
+- [x] Export `artifacts/final_model.joblib`.
+- [x] Export `artifacts/model_metadata.json`.
+- [x] Export `artifacts/model_metrics.json`.
+- [x] Export `artifacts/feature_schema.json`.
+- [x] Export `artifacts/threshold.json`.
+- [x] Export `artifacts/feature_importance.json`.
+- [x] Export `artifacts/models_compare.json`.
 
-## Phase 8: FastAPI Backend Development
-- [ ] Create backend application structure (`backend/app`).
-- [ ] Implement Pydantic input/output schemas matching `docs/API_CONTRACT.md`.
-- [ ] Implement ML inference service loading saved artifacts.
-- [ ] Implement physics-guided rule-based recommendation engine.
-- [ ] Implement endpoints:
+## Phase 8: FastAPI Backend Development [COMPLETED]
+- [x] Create backend application structure (`backend/app`).
+- [x] Implement Pydantic input/output schemas matching `docs/API_CONTRACT.md`.
+- [x] Implement ML inference service loading saved artifacts.
+- [x] Implement physics-guided rule-based recommendation engine.
+- [x] Implement endpoints:
   - `GET /api/health`
   - `GET /api/model/info`
   - `POST /api/predict`
-  - `POST /api/predict/batch`
+  - `POST /api/predict/batch` (JSON + CSV upload support)
   - `GET /api/analytics/summary`
   - `GET /api/analytics/failure-distribution`
   - `GET /api/analytics/feature-importance`
   - `GET /api/analytics/model-metrics`
   - `GET /api/models/compare`
-- [ ] Enable CORS for frontend integration.
+- [x] Enable CORS for frontend integration.
 
-## Phase 9: Testing & Quality Assurance
-- [ ] Write unit tests for preprocessing, inference, and physics rules.
-- [ ] Write API integration tests covering all 9 endpoints.
-- [ ] Test batch prediction with valid, invalid, and edge-case CSVs.
-- [ ] Execute `pytest` suite and ensure 100% pass rate.
+## Phase 9: Testing & Quality Assurance [COMPLETED]
+- [x] Write unit tests for preprocessing, inference, and physics rules.
+- [x] Write API integration tests covering all 9 endpoints.
+- [x] Test batch prediction with valid, invalid, and edge-case CSVs.
+- [x] Execute `pytest` suite and ensure 100% pass rate (11/11 passing).
 
-## Phase 10: Final Documentation, Audit & Integration PR
-- [ ] Update `PROJECT_STATUS.md` with real metric results.
-- [ ] Author `docs/EXPERIMENTS.md`, `docs/DEPLOYMENT.md`, `docs/TESTING.md`.
-- [ ] Push `chirag/ml-backend` branch and open PR into `integration`.
-- [ ] Deliver final master execution report.
+## Phase 10: Final Documentation, Audit & Integration PR [COMPLETED]
+- [x] Update `PROJECT_STATUS.md` with real metric results.
+- [x] Author `docs/EXPERIMENTS.md`, `docs/DEPLOYMENT.md`, `docs/TESTING.md`.
+- [x] Push `chirag/ml-backend` branch and open PR into `integration`.

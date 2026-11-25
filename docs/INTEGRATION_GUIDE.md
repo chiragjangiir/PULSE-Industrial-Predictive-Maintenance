@@ -60,3 +60,4 @@ git commit -m "feat(frontend): implement PULSE dashboard overview and prediction
 git push origin friend/frontend-dashboard
 ```
 Then open a Pull Request from `friend/frontend-dashboard` into the `integration` branch on GitHub.
+

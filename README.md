@@ -119,3 +119,4 @@ Refer to [`docs/INTEGRATION_GUIDE.md`](docs/INTEGRATION_GUIDE.md) for full colla
 
 ## 📜 License
 MIT License. See [LICENSE](LICENSE) for details.
+

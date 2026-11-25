@@ -72,3 +72,4 @@ PULSE pairs statistical ML predictions with rule-based industrial heuristic chec
 ## 3. Deployment & Scalability Characteristics
 - **Stateless REST backend**: Enables horizontal autoscaling across multi-worker Uvicorn processes or containerized Kubernetes pods.
 - **Resource Footprint**: Highly optimized for resource-constrained edge machines (Apple Silicon M1, 8GB RAM, and free Colab environments).
+

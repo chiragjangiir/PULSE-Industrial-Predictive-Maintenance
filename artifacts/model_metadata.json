@@ -1,0 +1,25 @@
+{
+  "model_id": "pulse_gradient_boosting_v1",
+  "algorithm": "Gradient Boosting",
+  "trained_at": "2026-11-25T09:28:18.642907+00:00",
+  "dataset_name": "UCI AI4I 2020 Predictive Maintenance Dataset",
+  "dataset_version": "1.0",
+  "total_training_samples": 8000,
+  "total_test_samples": 2000,
+  "decision_threshold": 0.31,
+  "features": [
+    "Type",
+    "Air temperature [K]",
+    "Process temperature [K]",
+    "Rotational speed [rpm]",
+    "Torque [Nm]",
+    "Tool wear [min]"
+  ],
+  "metrics_summary": {
+    "test_roc_auc": 0.9679,
+    "test_pr_auc": 0.8918,
+    "test_recall": 0.8088,
+    "test_precision": 0.9016,
+    "test_f1": 0.8527
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "features": [
+    {
+      "name": "Type",
+      "type": "categorical",
+      "values": [
+        "L",
+        "M",
+        "H"
+      ],
+      "required": true
+    },
+    {
+      "name": "Air temperature [K]",
+      "type": "float",
+      "min": 290.0,
+      "max": 315.0,
+      "required": true
+    },
+    {
+      "name": "Process temperature [K]",
+      "type": "float",
+      "min": 300.0,
+      "max": 325.0,
+      "required": true
+    },
+    {
+      "name": "Rotational speed [rpm]",
+      "type": "int",
+      "min": 1000,
+      "max": 3200,
+      "required": true
+    },
+    {
+      "name": "Torque [Nm]",
+      "type": "float",
+      "min": 0.0,
+      "max": 100.0,
+      "required": true
+    },
+    {
+      "name": "Tool wear [min]",
+      "type": "int",
+      "min": 0,
+      "max": 300,
+      "required": true
+    }
+  ]
+}

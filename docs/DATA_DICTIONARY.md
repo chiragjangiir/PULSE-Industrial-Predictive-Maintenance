@@ -51,3 +51,4 @@ To enhance machine learning discrimination without ground-truth leakage, PULSE c
 4. **`temp_ratio`**:
    $$\text{temp\_ratio} = \frac{\text{Process temperature [K]}}{\text{Air temperature [K]}}$$
    *Physics Meaning:* Relative temperature gradient tracking thermal expansion drift.
+

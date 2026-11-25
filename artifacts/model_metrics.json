@@ -1,0 +1,20 @@
+{
+  "model": "Gradient Boosting",
+  "evaluated_on": "Hold-out Test Set (20% Stratified, 2000 samples)",
+  "decision_threshold": 0.31,
+  "metrics": {
+    "accuracy": 0.9905,
+    "balanced_accuracy": 0.9029,
+    "roc_auc": 0.9679,
+    "pr_auc": 0.8918,
+    "precision": 0.9016,
+    "recall": 0.8088,
+    "f1_score": 0.8527,
+    "confusion_matrix": {
+      "true_negative": 1926,
+      "false_positive": 6,
+      "false_negative": 13,
+      "true_positive": 55
+    }
+  }
+}

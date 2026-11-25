@@ -40,3 +40,4 @@ Primary decision metrics:
 - **ROC-AUC**: Evaluates ranking capability across false positive rates.
 - **Recall & False Negatives**: In industrial settings, a missed breakdown is far more costly than an unnecessary inspection.
 - **Balanced Accuracy**: Arithmetic mean of sensitivity and specificity.
+
