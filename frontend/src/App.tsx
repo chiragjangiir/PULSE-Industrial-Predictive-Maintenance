@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AppProvider } from '@/context/AppContext';
-import { Layout } from '@/components/layout/Layout';
-import { OverviewPage } from '@/pages/OverviewPage';
-import { PredictPage } from '@/pages/PredictPage';
-import { FleetMonitorPage } from '@/pages/FleetMonitorPage';
-import { AnalyticsPage } from '@/pages/AnalyticsPage';
-import { ModelLabPage } from '@/pages/ModelLabPage';
-import { ExplainabilityPage } from '@/pages/ExplainabilityPage';
-import { MaintenanceAlertsPage } from '@/pages/MaintenanceAlertsPage';
-import { DataExplorerPage } from '@/pages/DataExplorerPage';
-import { AboutPage } from '@/pages/AboutPage';
+import { AppProvider } from './context/AppContext';
+import { Layout } from './components/layout/Layout';
+import { OverviewPage } from './pages/OverviewPage';
+import { PredictPage } from './pages/PredictPage';
+import { FleetMonitorPage } from './pages/FleetMonitorPage';
+import { AnalyticsPage } from './pages/AnalyticsPage';
+import { ModelLabPage } from './pages/ModelLabPage';
+import { ExplainabilityPage } from './pages/ExplainabilityPage';
+import { MaintenanceAlertsPage } from './pages/MaintenanceAlertsPage';
+import { DataExplorerPage } from './pages/DataExplorerPage';
+import { AboutPage } from './pages/AboutPage';
 
 export const App: React.FC = () => {
   return (
