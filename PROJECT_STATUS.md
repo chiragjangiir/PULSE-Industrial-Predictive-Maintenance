@@ -11,32 +11,21 @@
 
 ## Current Status Overview
 - [x] **Phase 1: Workspace, GitHub & Shared Contracts**
-  - Remote GitHub repository: `https://github.com/chiragjangiir/PULSE-Industrial-Predictive-Maintenance`
-  - Core branches: `main`, `integration`, `chirag/ml-backend`
-  - Canonical shared documents: `API_CONTRACT.md`, `ARCHITECTURE.md`, `DATA_DICTIONARY.md`, `ML_METHODOLOGY.md`, `INTEGRATION_GUIDE.md`.
 - [x] **Phase 2: Dataset Acquisition & Validation Pipeline**
-  - Automated download from official UCI AI4I 2020 repository.
-  - Verified row count (10,000), 0 missing values, expected 14 columns.
 - [x] **Phase 3: Research Notebook & Exploratory Data Analysis (EDA)**
-  - Created and executed `notebooks/PULSE_ML_Research.ipynb`.
-  - Colab badge and direct runnable workflow enabled.
 - [x] **Phase 4: ML Baselines & Candidate Model Experiments**
-  - Evaluated Dummy, Logistic Regression, Decision Tree, KNN, Random Forest, and Gradient Boosting.
-  - Leakage prevention verified (identifiers and failure subtypes excluded).
 - [x] **Phase 5: Class Imbalance & Cost-Sensitive Threshold Optimization**
-  - Stratified 5-fold cross-validation on train partition.
-  - Cost curve optimized: $\theta = 0.31$ (PR-AUC: 0.8918, ROC-AUC: 0.9679, F1: 0.8527).
 - [x] **Phase 6: Model Explainability**
-  - Permutation feature importance computed on hold-out test set.
 - [x] **Phase 7: Artifact Generation & Pipeline Serialization**
-  - Serialized to `artifacts/final_model.joblib` and metadata/metrics JSON files.
 - [x] **Phase 8: Modular FastAPI Backend Development**
-  - Implemented all 9 planned endpoints (`/health`, `/model/info`, `/predict`, `/predict/batch`, `/analytics/*`, `/models/compare`).
-  - Dual JSON/CSV batch prediction supported.
 - [x] **Phase 9: Comprehensive Test Suite & Frontend Integration Support**
-  - Pytest suite passes 11/11 tests across API, schemas, batch, and physics rules.
 - [x] **Phase 10: Final Audit, Research Documentation & PR to Integration**
-  - PR opened from `chirag/ml-backend` into `integration`.
+- [x] **Phase 11: Production Deployment & Vercel Launch**
+  - Live Frontend: https://frontend-omega-woad-22.vercel.app
+  - Vercel SPA routing verified (200 OK across all 9 direct routes)
+  - Code-split routes with `React.lazy` implemented
+  - Docker containerization & Render blueprint (`render.yaml`) configured
+  - CI/CD workflow `.github/workflows/ci.yml` added
 
 ---
 

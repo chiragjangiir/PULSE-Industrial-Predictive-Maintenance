@@ -1,11 +1,13 @@
 # PULSE: Industrial Intelligence & Predictive Maintenance Platform
 
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20App-000000?style=flat&logo=vercel&logoColor=white)](https://frontend-omega-woad-22.vercel.app)
 [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/chiragjangiir/PULSE-Industrial-Predictive-Maintenance/blob/main/notebooks/PULSE_ML_Research.ipynb)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)](https://fastapi.tiangolo.com)
 [![Scikit-Learn](https://img.shields.io/badge/scikit--learn-1.4+-F7931E.svg)](https://scikit-learn.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+> **Live Dashboard:** [https://frontend-omega-woad-22.vercel.app](https://frontend-omega-woad-22.vercel.app)  
 > **Academic Title:** An Explainable Machine Learning System for Industrial Machine Failure Prediction, Risk Assessment, and Predictive Maintenance.
 
 PULSE is an end-to-end industrial intelligence and predictive maintenance research platform designed for heavy machinery reliability engineering. It combines rigorous, leakage-free machine learning pipelines with production-grade FastAPI microservices and an explainable decision-support dashboard.
