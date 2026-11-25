@@ -41,3 +41,4 @@ Its UI is built on the core principles of **High-Performance HMI (ISA-101 / EEMU
 2. **Prioritized Equipment Lists:** Equipment needing immediate triage is ranked and highlighted at the top of lists and tables.
 3. **Operational Limit Envelopes:** All sensor trend charts and scatter plots must display upper/lower control limits ($UCL / LCL$) or safe operating zones.
 4. **Maintenance Action Integration:** Every diagnostic prediction must be accompanied by the physical root-cause explanation and prescribed maintenance action.
+
